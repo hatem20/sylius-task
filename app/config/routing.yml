@@ -26,3 +26,19 @@ sylius_shop_default_locale:
 
 _liip_imagine:
     resource: '@LiipImagineBundle/Resources/config/routing.xml'
+
+app_stock_room:
+    resource: |
+        alias: app.stockroom
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        redirect: update
+        grid: app_admin_stockroom
+        vars:
+            all:
+                subheader: app.ui.supplier
+            index:
+                icon: 'search'
+        permission: true
+    prefix: /admin
+    type: sylius.resource

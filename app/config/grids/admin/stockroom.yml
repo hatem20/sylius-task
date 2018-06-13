@@ -1,0 +1,20 @@
+sylius_grid:
+    grids:
+        app_admin_stockroom:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: AppBundle\Entity\StockRoom
+            fields:
+                name:
+                    type: string
+                    label: sylius.ui.name
+                isDefault:
+                    type: twig
+                    label: default
+                    options:
+                        template: SyliusUiBundle:Grid/Field:yesNo.html.twig # This will be a checkbox field
+            actions:
+                item:
+                    update:
+                        type: update

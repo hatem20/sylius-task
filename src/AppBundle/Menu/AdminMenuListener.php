@@ -8,8 +8,31 @@
 
 namespace AppBundle\Menu;
 
+use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
 
-class AdminMenuListener
+
+final class AdminMenuListener
 {
+    /**
+     * @param MenuBuilderEvent $event
+     */
+    public function addAdminMenuItems(MenuBuilderEvent $event): void
+    {
+        $menu = $event->getMenu();
 
+        $newSubmenu = $menu
+            ->getChild('catalog');
+
+        $options  = [
+            'route' => 'app_admin_stockroom_index',
+//            'routeParameters' => ['username' => 'ahmed']
+
+        ];
+        $newSubmenu
+            ->addChild('stockrooms', $options)
+            ->setAttribute('type', 'link')
+            ->setLabelAttribute('icon', 'shopping bag')
+            ->setLabelAttribute('color', 'blue')
+            ->setLabel('stockrooms');
+    }
 }

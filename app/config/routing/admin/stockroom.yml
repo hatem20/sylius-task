@@ -1,0 +1,15 @@
+app_stock_room:
+    resource: |
+        alias: app.stockroom
+        section: admin
+        templates: SyliusAdminBundle:Stock
+        redirect: update
+        grid: app_admin_stockroom
+        vars:
+            all:
+                subheader: app.ui.supplier
+            index:
+                icon: 'search'
+        permission: true
+    prefix: /admin
+    type: sylius.resource

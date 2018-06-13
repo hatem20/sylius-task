@@ -10,6 +10,9 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    #add stock room resources
+    - { resource: "resources.yml" }
+    - { resource: "grids/grids.yml" }
 
 parameters:
     locale: en_US
@@ -63,3 +66,10 @@ fos_rest:
         rules:
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
+
+#add stock-room as resource
+sylius_resource:
+    resources:
+        app.stockroom:
+            classes:
+                model: AppBundle\Entity\StockRoom

@@ -1,0 +1,2 @@
+app_stock_room:
+    resource: 'stockroom.yml'

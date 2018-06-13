@@ -1,0 +1,7 @@
+# app/config/resources.yml
+sylius_resource:
+    resources:
+        app.stockroom:
+            driver: doctrine/orm
+            classes:
+                model: AppBundle\Entity\StockRoom
