@@ -73,3 +73,12 @@ sylius_resource:
         app.stockroom:
             classes:
                 model: AppBundle\Entity\StockRoom
+                controller: AppBundle\Controller\StockRoomController
+                repository: AppBundle\Repository\StockRoomRepository
+
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                controller: AppBundle\Controller\ProductController

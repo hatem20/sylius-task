@@ -42,3 +42,7 @@ app_stock_room:
         permission: true
     prefix: /admin
     type: sylius.resource
+
+#app_admin_stockroom_update:
+#    defaults:
+#        _controller: app.controller.stock:updateAction
