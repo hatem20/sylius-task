@@ -26,3 +26,5 @@
 /behat.yml
 /phpunit.xml
 /phpspec.yml
+
+.idea/workspace.xml
