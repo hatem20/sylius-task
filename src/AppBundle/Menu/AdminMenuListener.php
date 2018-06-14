@@ -25,8 +25,6 @@ final class AdminMenuListener
 
         $options  = [
             'route' => 'app_admin_stockroom_index',
-//            'routeParameters' => ['username' => 'ahmed']
-
         ];
         $newSubmenu
             ->addChild('stockrooms', $options)
@@ -34,5 +32,18 @@ final class AdminMenuListener
             ->setLabelAttribute('icon', 'shopping bag')
             ->setLabelAttribute('color', 'blue')
             ->setLabel('stockrooms');
+
+        $newSubmenu = $menu
+            ->getChild('configuration');
+
+        $options  = [
+            'route' => 'app_admin_constant_index',
+        ];
+        $newSubmenu
+            ->addChild('stockrooms', $options)
+            ->setAttribute('type', 'link')
+//            ->setLabelAttribute('icon', 'shopping bag')
+//            ->setLabelAttribute('color', 'blue')
+            ->setLabel('constants');
     }
 }

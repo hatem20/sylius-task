@@ -43,6 +43,18 @@ app_stock_room:
     prefix: /admin
     type: sylius.resource
 
-#app_admin_stockroom_update:
-#    defaults:
-#        _controller: app.controller.stock:updateAction
+app_constant:
+    resource: |
+        alias: app.constant
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        redirect: update
+        grid: app_admin_constant
+        vars:
+            all:
+                subheader: app.ui.supplier
+            index:
+                icon: 'search'
+        permission: true
+    prefix: /admin
+    type: sylius.resource

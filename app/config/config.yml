@@ -67,15 +67,20 @@ fos_rest:
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
 
-#add stock-room as resource
 sylius_resource:
     resources:
+        #add stock-room as resource
         app.stockroom:
             classes:
                 model: AppBundle\Entity\StockRoom
                 controller: AppBundle\Controller\StockRoomController
                 repository: AppBundle\Repository\StockRoomRepository
-
+        #add constant as resource
+        app.constant:
+            classes:
+                model: AppBundle\Entity\Constant
+#                controller: AppBundle\Controller\ConstantController
+#                repository: AppBundle\Repository\ConstantRepository
 
 sylius_product:
     resources:

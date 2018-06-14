@@ -1,0 +1,20 @@
+sylius_grid:
+    grids:
+        app_admin_constant:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: AppBundle\Entity\Constant
+            fields:
+#                name:
+#                    type: string
+#                    label: sylius.ui.name
+                sum:
+                    type: twig
+                    label: show product count as the sum of all stockrooms stock?
+                    options:
+                        template: SyliusUiBundle:Grid/Field:yesNo.html.twig # This will be a checkbox field
+            actions:
+                item:
+                    update:
+                        type: update

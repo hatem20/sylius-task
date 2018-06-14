@@ -1,3 +1,4 @@
 # app/config/grids/grids.yml
 imports:
     - { resource: 'admin/stockroom.yml' }
+    - { resource: 'admin/constant.yml' }
