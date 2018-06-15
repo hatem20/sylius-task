@@ -80,10 +80,11 @@ sylius_resource:
             classes:
                 model: AppBundle\Entity\Constant
 #                controller: AppBundle\Controller\ConstantController
-#                repository: AppBundle\Repository\ConstantRepository
+                repository: AppBundle\Repository\ConstantRepository
 
 sylius_product:
     resources:
         product:
             classes:
                 controller: AppBundle\Controller\ProductController
+                model: AppBundle\Entity\Product

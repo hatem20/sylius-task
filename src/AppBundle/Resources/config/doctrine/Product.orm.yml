@@ -1,0 +1,10 @@
+AppBundle\Entity\Product:
+    type: entity
+    table: sylius_product
+
+    oneToMany:
+        productStock:
+            targetEntity: AppBundle\Entity\ProductStock
+            mappedBy: product
+            cascade: [ "all" ]
+            orphanRemoval: false

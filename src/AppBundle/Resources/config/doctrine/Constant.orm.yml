@@ -1,0 +1,13 @@
+AppBundle\Entity\Constant:
+    type: entity
+    table: constant
+
+    fields:
+        sum:
+            type: boolean
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO

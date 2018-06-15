@@ -1,0 +1,23 @@
+AppBundle\Entity\StockRoom:
+    type: entity
+    table: stock_room
+
+    fields:
+        name:
+            type: string
+
+        isDefault:
+            type: boolean
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    oneToMany:
+        productStock:
+            targetEntity: AppBundle\Entity\ProductStock
+            mappedBy: stockRoom
+            cascade: [ "all" ]
+            orphanRemoval: false

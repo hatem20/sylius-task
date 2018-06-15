@@ -36,6 +36,24 @@ class StockRoom implements ResourceInterface
      */
     private $isDefault;
 
+    /** @ORM\OneToMany(targetEntity="ProductStock", mappedBy="stockRoom") */
+    protected $productStock;
+
+    /**
+     * @return mixed
+     */
+    public function getProductStock()
+    {
+        return $this->productStock;
+    }
+
+    /**
+     * @param mixed $productStock
+     */
+    public function setProductStock($productStock): void
+    {
+        $this->productStock = $productStock;
+    }
 
     /**
      * Get id.

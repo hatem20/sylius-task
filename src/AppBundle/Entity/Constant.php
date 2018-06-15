@@ -15,19 +15,14 @@ class Constant implements ResourceInterface
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="sum", type="boolean", unique=true)
      */
     private $sum;
-
 
     /**
      * Get id.

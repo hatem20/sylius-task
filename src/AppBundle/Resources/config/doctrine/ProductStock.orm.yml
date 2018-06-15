@@ -1,0 +1,31 @@
+AppBundle\Entity\ProductStock:
+    type: entity
+    table: product_stock
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    fields:
+        amount:
+            type: integer
+            nullable: false
+
+    manyToOne:
+        stockRoom:
+            targetEntity: AppBundle\Entity\StockRoom
+            inversedBy: productStock
+            joinColumn:
+                name: stock_room_id
+            cascade: [ "all" ]
+            orphanRemoval: false
+
+        product:
+            targetEntity: AppBundle\Entity\Product
+            inversedBy: productStock
+            joinColumn:
+                name: product_id
+            cascade: [ "all" ]
+            orphanRemoval: false

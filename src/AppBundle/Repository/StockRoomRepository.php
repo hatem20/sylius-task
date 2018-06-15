@@ -15,12 +15,6 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
  */
 class StockRoomRepository extends \Doctrine\ORM\EntityRepository implements RepositoryInterface
 {
-    public function test()
-    {
-        echo "hello test";exit;
-
-    }
-
     public function setDefault(int $id, bool $newIsDefaultVal) : bool
     {
         //this would be better documented with BDD
