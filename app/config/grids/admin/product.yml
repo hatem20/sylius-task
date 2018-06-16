@@ -1,0 +1,14 @@
+sylius_grid:
+    grids:
+        sylius_admin_product:
+            actions:
+                subitem:
+                    stocks:
+                        type: update
+                        label: transfer product
+                        icon: exchange
+                        options:
+                            link:
+                                route: app_admin_product_stock_index
+                                parameters:
+                                    productId: resource.id

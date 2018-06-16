@@ -82,6 +82,12 @@ sylius_resource:
 #                controller: AppBundle\Controller\ConstantController
                 repository: AppBundle\Repository\ConstantRepository
 
+        app.product_stock:
+            classes:
+                model: AppBundle\Entity\ProductStock
+                controller: AppBundle\Controller\ProductStockController
+                repository: AppBundle\Repository\ProductStockRepository
+
 sylius_product:
     resources:
         product:

@@ -9,9 +9,10 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Resource\Model\ResourceInterface;
 
 /** @ORM\Table(name="product_stock") @ORM\Entity() */
-class ProductStock
+class ProductStock implements ResourceInterface
 {
     /** ORM\Column(type="integer") */
     protected $amount;

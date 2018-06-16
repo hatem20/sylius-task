@@ -1,0 +1,26 @@
+sylius_grid:
+    grids:
+        app_admin_product_stock:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: AppBundle\Entity\ProductStock
+                    repository:
+                        method: getProductStockByProductId
+            fields:
+                product.name:
+                    type: string
+                    label: product name
+
+                stockRoom.name:
+                    type: string
+                    label: stock room
+
+                amount:
+                    type: string
+                    label: amount in stock
+
+            actions:
+                item:
+                    update:
+                        type: update

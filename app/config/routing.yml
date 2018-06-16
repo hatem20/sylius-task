@@ -58,3 +58,19 @@ app_constant:
         permission: true
     prefix: /admin
     type: sylius.resource
+
+app_product_stock:
+    resource: |
+        alias: app.product_stock
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        redirect: update
+        grid: app_admin_product_stock
+        vars:
+            all:
+                subheader: app.ui.supplier
+            index:
+                icon: 'search'
+        permission: true
+    prefix: /admin
+    type: sylius.resource
