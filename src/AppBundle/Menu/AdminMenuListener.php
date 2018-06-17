@@ -10,7 +10,6 @@ namespace AppBundle\Menu;
 
 use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
 
-
 final class AdminMenuListener
 {
     /**

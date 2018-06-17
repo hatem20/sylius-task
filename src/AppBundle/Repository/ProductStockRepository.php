@@ -8,6 +8,7 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\QueryBuilder;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 
@@ -28,7 +29,7 @@ class ProductStockRepository extends \Doctrine\ORM\EntityRepository implements R
         // TODO: Implement createPaginator() method.
     }
 
-    public function getProductStockByProductId()
+    public function getProductStockByProductId(): QueryBuilder
     {
         /*
          * XXXX this should never be done it's just a hack
@@ -48,5 +49,43 @@ class ProductStockRepository extends \Doctrine\ORM\EntityRepository implements R
                 ->select('p')
                 ->orderBy('p.product');
         }
+    }
+
+    /**
+     * @param $productId int
+     * @param $stockRoomId int
+     * @return int
+     * @throws
+     */
+    public function getAmountByProductIdAndStockRoomId(int $productId,int  $stockRoomId): int
+    {
+        $qb = $this->createQueryBuilder('p');
+
+        $amount = $qb
+            ->select('p.amount')
+            ->where('p.product = :product_id')
+            ->andWhere('p.stockRoom = :stockroom_id')
+            ->setParameter('product_id', $productId)
+            ->setParameter('stockroom_id', $stockRoomId)
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        return $amount;
+    }
+
+    public function updateStockRoomAmount(int $stockRoomId, int $productId, int $amount): void
+    {
+        $qb = $this->createQueryBuilder('p');
+
+        $q = $qb
+            ->update('AppBundle:ProductStock','p')
+            ->set('p.amount', $amount)
+            ->where('p.stockRoom = :stockroom_id')
+            ->andWhere('p.product = :product_id')
+            ->setParameter('stockroom_id', $stockRoomId)
+            ->setParameter('product_id', $productId)
+            ->getQuery();
+
+        $q->execute();
     }
 }

@@ -15,6 +15,19 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
  */
 class StockRoomRepository extends \Doctrine\ORM\EntityRepository implements RepositoryInterface
 {
+    public function getDefaultStockRoom()
+    {
+        $qb = $this->createQueryBuilder('p');
+
+        $qb
+            ->select('p')
+            ->where('p.isDefault = true');
+
+        $currentDefaultStockRoom = $qb->getQuery()->getSingleResult()->getId();
+
+        return $currentDefaultStockRoom;
+    }
+
     public function setDefault(int $id, bool $newIsDefaultVal) : bool
     {
         //this would be better documented with BDD
