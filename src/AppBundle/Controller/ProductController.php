@@ -27,7 +27,29 @@ class ProductController extends ResourceController
         $repository = $this->container->get('app.repository.constant');
 
         //0 sum of all stock rooms and 1 only default stock room
-        $stockSource = $repository->isSum();
+
+        if ($repository->isSum()) {
+
+            $stocks = $resource->getProductStock();
+
+            $count = 0;
+
+            foreach ($stocks as $stock) {
+
+                $count += $stock->getAmount();
+            }
+        } else {
+
+            $stockRoomRepository = $this->container->get('app.repository.stockroom');
+
+            $productStockRepository = $this->container->get('app.repository.product_stock');
+
+            $defaultStockRoomId = $stockRoomRepository->getDefaultStockRoom();
+
+            $defaultStockRoomAmount = $productStockRepository->getAmountByProductIdAndStockRoomId($resource->getId(), $defaultStockRoomId);
+
+            $count = $defaultStockRoomAmount;
+        }
 
         $view = View::create($resource);
 
@@ -39,7 +61,7 @@ class ProductController extends ResourceController
                     'configuration' => $configuration,
                     'metadata' => $this->metadata,
                     'resource' => $resource,
-                    'stockSource'=> $stockSource,
+                    'count'=> $count,
                     $this->metadata->getName() => $resource,
                 ])
             ;
