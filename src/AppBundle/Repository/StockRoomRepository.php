@@ -83,6 +83,22 @@ class StockRoomRepository extends \Doctrine\ORM\EntityRepository implements Repo
             } else {
 
                 if ($newIsDefaultVal) {
+
+                    if ($id !== $currentDefaultStockRoom) {
+
+                        $q = $qb
+                            ->update('AppBundle:StockRoom','p')
+                            ->set('p.isDefault', 'false')
+                            ->where('p.id = :stockRoomId')
+                            ->setParameter('stockRoomId', $currentDefaultStockRoom)
+                            ->getQuery();
+
+                        $q->execute();
+
+                    } else {
+
+                    }
+
                     return 1;
                 } else {
 
